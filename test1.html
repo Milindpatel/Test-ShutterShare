@@ -55,13 +55,20 @@
 				var regex = /([a-z])(?!.*\1)/g;
 
 				function check() {
-					var val = document.getElementById('test1Text').value.toLowerCase();
 
-					if(val.match(regex).length == 26){
-						document.getElementById('outputTest1').innerText = "True (String is pangram)";
-					}else{
-						document.getElementById('outputTest1').innerText = "False (String is not pangram)";
+					try {
+						var val = document.getElementById('test1Text').value.toLowerCase();
+
+						if(val.match(regex).length == 26){
+							document.getElementById('outputTest1').innerText = "True (String is pangram)";
+						}else{
+							document.getElementById('outputTest1').innerText = "False (String is not pangram)";
+						}
 					}
+					catch(err) {
+						document.getElementById('outputTest1').innerText = "Please Enter correctly and try again";
+					}
+					
 
 				}
 			</script>
