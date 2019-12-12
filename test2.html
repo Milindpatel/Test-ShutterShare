@@ -53,9 +53,9 @@
 			function check() {
 
 
-					var val = document.getElementById('test2Text').value.toLowerCase();
+					var val = document.getElementById('test2Text').value;
 
-					var busy = 0;
+					var buy = 0;
 					var sell = 0;
 					var nb = 0;
 					var sb = "";
@@ -66,14 +66,28 @@
 						order = order.trim();
 						var orderSplit = order.split(" ");
 
-						for (let i =0;i<orderSplit.length; i++){
-							if(i == 1){
-							
-							}
-						}
+							/** orderSplit[0].indexOf(' ') >= 0) = false if string has not whitespace
+								(orderSplit[1].indexOf('.') === -1) = true if string does not have dot(period)
+							**/
+
+							 console.log( !(orderSplit[0].indexOf(' ') >= 0) && orderSplit[1].indexOf('.') === -1 && orderSplit[2].indexOf('.') !== -1 &&  (orderSplit[3] == "B" || orderSplit[3] == "S"))
+						
+								if( !(orderSplit[0].indexOf(' ') >= 0) && orderSplit[1].indexOf('.') === -1 && orderSplit[2].indexOf('.') !== -1 &&  (orderSplit[3] == "B" || orderSplit[3] == "S")){
+									if(orderSplit[3] == "B"){
+										buy = Number(orderSplit[1]) *  Number(orderSplit[2]) + buy;
+									} else if (orderSplit[3] == "S"){
+										sell = Number(orderSplit[1]) *  Number(orderSplit[2]) + sell;
+									}
+								}else{
+									nb++;
+									if(nb == 1){
+									}
+									sb = order + " ;" + sb;
+								}
+													
 					}
 
-
+					document.getElementById('outputTest2').innerText = "Buy: " + buy + " Sell: " + sell+ "; Badly formed " + nb + ": " + sb
 
 				}
 			</script>
