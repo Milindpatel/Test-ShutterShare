@@ -30,7 +30,7 @@
 					<form action="#" method="post">
 					
 						<div class="field">
-							<textarea name="message" id="message" rows="6" placeholder="Enter the value"></textarea>
+							<textarea name="test2Text" id="test2Text" rows="6" placeholder="Enter the value"></textarea>
 						</div>
 						<ul class="actions">
 								<li><button onclick="check()" class="button" type="button">Output</button></li>
@@ -48,6 +48,17 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+			function check() {
+					var val = document.getElementById('test2Text').value.toLowerCase();
+
+					var orderArrays = val.split(",");
+
+
+
+				}
+			</script>
 
 	</body>
 </html>
